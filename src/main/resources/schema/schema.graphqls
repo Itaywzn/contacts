@@ -1,0 +1,68 @@
+type Query {
+    contacts(pageNum: Int!, pageSize: Int!):[Contact]
+    contactGroups:[ContactGroup]
+}
+type Mutation{
+    deleteContact(contactId: Int!): Boolean
+    addContact(contact:ContactInput!):Contact
+    updateContact(contact:ContactInput!,contactId: Int!):Contact
+}
+
+type Contact {
+    id:Int
+    !firstName: String
+    !lastName: String
+    nickName: String
+    photoPath: String
+    address: Address
+    contactGroup: ContactGroup
+    contactGroupId: Int
+    !phoneNumbers:[PhoneNumber]
+}
+input ContactInput {
+    firstName: String
+    lastName: String
+    nickName: String
+    photoPath: String
+    address: AddressInput
+    ContactGroup: ContactGroupInput
+    phoneNumbers:[PhoneNumberInput]
+}
+type Address {
+    id:Int
+    city: String
+    street: String
+    houseNum: String
+    apartmentNum: String
+}
+input AddressInput {
+    city: String
+    street: String
+    houseNum: String
+    apartmentNum: String
+}
+type ContactGroup {
+    id:Int
+    name: String
+}
+input ContactGroupInput {
+    id:Int
+    name: String
+}
+type PhoneNumber {
+    id:Int
+    number: String
+    type:PhoneType
+    primary:Boolean
+}
+input PhoneNumberInput {
+    number: String
+    type:PhoneTypeInput
+}
+type PhoneType {
+    code:Int
+    name:String
+}
+input PhoneTypeInput {
+    code:Int
+}

@@ -1,0 +1,41 @@
+.dialog-content{
+    display: flex;
+    flex-direction: column;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.actions{
+  float: right;
+}
+
+.mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .phone-numbers-container  {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+ 
+  .phone-numbers-container mat-form-field{
+    width: 95%;
+    margin: 0 8px 0 8px;
+
+  }
+  .phone-number mat-form-field {
+    width: 95%;
+    margin: 0 16px 0 8px;
+
+  }
+  .phone-number{
+    display: flex;
+    align-items: baseline;
+  }
+  .group-container{
+      display: flex;
+      flex-direction: column;
+  }

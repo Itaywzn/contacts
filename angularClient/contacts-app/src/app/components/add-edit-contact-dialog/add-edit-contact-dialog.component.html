@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>Hi </h1>
+<perfect-scrollbar style="max-height: 450px;">
+    <div mat-dialog-content>
+        <form (ngSubmit)="data.onSubmit()" id="contactForm" class="dialog-content" [formGroup]="contactForm">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" matInput>
+                <mat-error *ngIf="fieldHasError('firstName')">{{getErrorMessage('firstName')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" matInput>
+                <mat-error *ngIf="fieldHasError('lastName')">{{getErrorMessage('lastName')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nick Name</mat-label>
+                <input formControlName="nickName" matInput>
+                <mat-error *ngIf="fieldHasError('nickName')">{{getErrorMessage('nickName')}}</mat-error>
+            </mat-form-field>
+            <ng-container>
+                <button type="button" (click)="addPhoneNumber()" mat-icon-button>
+                    <mat-icon color="primary">add_ic_call</mat-icon>
+                </button>
+                <div formArrayName="phoneNumbers" class="phone-numbers-container">
+                    <div class="phone-number" *ngFor="let phone  of phoneNumbers.controls ; let i  =index">
+                        <button *ngIf="i!==0" (click)="removePhoneNumber(i)" mat-icon-button>
+                            <mat-icon color="primary">remove_circle_outline</mat-icon>
+                        </button>
+                        <mat-form-field appearance="standard">
+                            <mat-label>Phone number</mat-label>
+                            <input [formControlName]='i' matInput>
+                            <mat-error *ngIf="phone.errors?.phoneNumber && (phone.touched || formSubmitClicked)">please enter valid phone
+                                number</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </ng-container>
+            <mat-accordion formGroupName="address" multi>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Address
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Optional contact address
+                            <mat-icon>apartment</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="group-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input formControlName="city" matInput>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Street</mat-label>
+                            <input formControlName="street" matInput>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>House Number</mat-label>
+                            <input formControlName="houseNum" type="number" matInput>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Apartment Number</mat-label>
+                            <input matInput type="number">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form>
+    </div>
+</perfect-scrollbar>
+<div class="actions" mat-dialog-actions>
+    <button [mat-dialog-close] mat-button>Cancel</button>
+    <button mat-button form="contactForm">Save</button>
+</div>

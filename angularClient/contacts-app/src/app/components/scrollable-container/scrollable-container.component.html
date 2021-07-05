@@ -1,0 +1,4 @@
+<button mat-stroked-button (click)="openContactDialog(null)" style="height: 48px;" color="primary"><mat-icon style="margin-right:16px;" color="primary">person_add</mat-icon>Add Contact </button>
+<perfect-scrollbar  (psYReachEnd)="fetchNextPage()" style="max-width: 600px;">
+    <div class="scrollable-content"><app-contact-card (onEdit)="openContactDialog($event)" (onDelete)="openConfirmationDialog($event)" *ngFor="for let contact of contacts" [contact]="contact" ></app-contact-card></div>
+</perfect-scrollbar>

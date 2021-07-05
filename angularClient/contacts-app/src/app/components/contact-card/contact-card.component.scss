@@ -1,0 +1,28 @@
+
+mat-card-header{
+  display: flex;
+}
+mat-card-actions{
+  margin-left: auto;
+}
+mat-icon .clicable{
+  user-select: none;
+  cursor: pointer;
+}
+
+.card {
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.image-container{
+  display: flex;
+  margin: 0 auto 0 auto
+}
+
+.address-container  {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,24 @@
+.main-grid-container{
+    display:grid;
+    grid-gap: 10px;
+    margin-top: 24px;
+    grid-template-areas:
+                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
+                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
+                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
+                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight";
+                            min-width: 100%;
+}
+
+app-scrollable-container{
+    height: calc(100vh - 100px);
+    grid-area: scrollCont;
+    display: flex; 
+    justify-content: center;
+}
+.empty-left{
+    grid-area: emptyLeft
+}
+.empty-right{
+    grid-area: emptyRight
+}
