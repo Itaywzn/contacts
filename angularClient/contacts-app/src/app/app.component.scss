@@ -8,9 +8,10 @@
 }
 
 app-scrollable-container{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 152px);
     grid-area: scrollCont;
     display: flex; 
+    flex-direction: column;
     justify-content: center;
 }
 .empty-left{
