@@ -2,12 +2,9 @@
     display:grid;
     grid-gap: 10px;
     margin-top: 24px;
-    grid-template-areas:
-                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
-                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
-                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight"
-                            "emptyLeft scrollCont scrollCont scrollCont  emptyRight";
-                            min-width: 100%;
+    min-width: 100%;
+    grid-template-columns: auto min(92%, 1140px) auto;
+    grid-template-areas: "emptyLeft scrollCont emptyRight";
 }
 
 app-scrollable-container{

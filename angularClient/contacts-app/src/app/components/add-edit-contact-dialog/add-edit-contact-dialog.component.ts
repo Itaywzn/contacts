@@ -16,6 +16,7 @@ export class AddEditContactDialogComponent implements OnInit {
   @ViewChild('imgElement') img:ElementRef | undefined = undefined;
   @ViewChild('canvesElement') canvas:ElementRef<HTMLCanvasElement> | undefined = undefined;
   imageSrc:string;
+  onSubmit:Function
   imageFilters : {[key: string]: string}
   phoneNumbers: FormArray;
   groups: ContactGroup[];
@@ -29,7 +30,7 @@ export class AddEditContactDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.onSubmit =  ()=>{
+    this.onSubmit =  ()=>{
       this.formSubmitClicked = true;
       if(this.contactForm.valid){
         this.data.onSubmit(this.contactForm)

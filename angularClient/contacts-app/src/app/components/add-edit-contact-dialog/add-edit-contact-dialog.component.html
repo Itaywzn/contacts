@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Hi </h1>
 <perfect-scrollbar style="max-height: 450px;">
     <div mat-dialog-content>
-        <form (ngSubmit)="data.onSubmit()" id="contactForm" class="dialog-content" [formGroup]="contactForm">
+        <form (ngSubmit)="onSubmit()" id="contactForm" class="dialog-content" [formGroup]="contactForm">
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input formControlName="firstName" matInput>
